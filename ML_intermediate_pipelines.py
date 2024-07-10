@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 # Read the data
-data = pd.read_csv('../input/melbourne-housing-snapshot/melb_data.csv')
+data = pd.read_csv('../data/melb_data.csv')
 
 # Separate target from predictors
 y = data.Price
