@@ -170,4 +170,24 @@ def count_combinations(df, col1, col2):
 
 country_variety_counts = count_combinations(reviews, 'country', 'variety')
 
+# rename columns
+renamed = reviews.rename(columns={'region_1' : 'region', 'region_2':'locale'})
 
+# rename axis
+reindexed = reviews.rename_axis("wines", axis = 'rows')
+
+
+#-#-#-#-#–#-#-#-#-#–#-#-#-#-#–#-#-#-#-#–#-#-#-#-#–#-#-#-#-#–#-#-#-#-#–#-#-#-#-#–#-#-#-#-#–#-#-#-#-#–
+
+'''## 3.
+The [Things on Reddit](https://www.kaggle.com/residentmario/things-on-reddit/data) dataset 
+includes product links from a selection of top-ranked forums ("subreddits") on reddit.com. 
+Run the cell below to load a dataframe of products mentioned on the */r/gaming* subreddit 
+and another dataframe for products mentioned on the *r//movies* subreddit.'''
+gaming_products = pd.read_csv("data/things-on-reddit/top-things/top-things/reddits/g/gaming.csv")
+gaming_products['subreddit'] = "r/gaming"
+movie_products = pd.read_csv("data/things-on-reddit/top-things/top-things/reddits/m/movies.csv")
+movie_products['subreddit'] = "r/movies"
+
+# Create a DataFrame of products mentioned on either subreddit.
+combined_products = pd.concat([gaming_products, movie_products])
