@@ -118,3 +118,45 @@ and we build it with the sns.swarmplot command.'''
 sns.swarmplot(x=insurance_data['smoker'],
               y=insurance_data['charges'])
 plt.show()
+
+
+##### DISTRIBUTIONS #####
+# Path of the file to read
+iris_filepath = "data/iris.csv"
+
+# Read the file into a variable iris_data
+iris_data = pd.read_csv(iris_filepath, index_col="Id")
+
+# Print the first 5 rows of the data
+iris_data.head()
+
+
+## HISTOGRAMS 
+'''Say we would like to create a histogram to see how petal length varies in iris flowers.
+We can do this with the sns.histplot command.'''
+# Histogram.png
+sns.histplot(iris_data['Petal Length (cm)'])
+plt.show()
+
+
+## DENSITY PLOT 
+'''The next type of plot is a kernel density estimate (KDE) plot. 
+In case you're not familiar with KDE plots, you can think of it as a smoothed histogram.
+
+To make a KDE plot, we use the sns.kdeplot command. 
+Setting shade=True colors the area below the curve 
+(and data= chooses the column we would like to plot).''' 
+# KDEplot.png
+sns.kdeplot(data=iris_data['Petal Length (cm)'], fill=True)
+plt.show()
+
+## 2D KDE PLOTS
+'''We're not restricted to a single column when creating a KDE plot. 
+We can create a two-dimensional (2D) KDE plot with the sns.jointplot command.
+
+In the plot below, the color-coding shows us how likely we are to see different 
+combinations of sepal width and petal length, where darker parts of the figure are more likely.'''
+# KDEplot2D.png
+sns.jointplot(x=iris_data['Petal Length (cm)'], y=iris_data['Sepal Width (cm)'], kind="kde") 
+plt.show()
+

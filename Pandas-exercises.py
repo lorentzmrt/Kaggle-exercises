@@ -14,7 +14,7 @@ reviews.apply(remean_points, axis='columns')
 # Create a variable bargain_wine with the title of the wine with the 
 # highest points-to-price ratio in the dataset.
 
-def find_bargain(reviews)
+def find_bargain(reviews):
 	return reviews.title.iloc[(reviews.points/reviews.price).idxmax()]
 
 bargain_wine = find_bargain(reviews)
